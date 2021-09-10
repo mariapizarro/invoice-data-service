@@ -1,0 +1,37 @@
+{
+  "name": "service-example",
+  "vendor": "vtex",
+  "version": "0.2.0",
+  "title": "Invoide Data - Service",
+  "description": "",
+  "mustUpdateAt": "",
+  "categories": [],
+  "dependencies": {},
+  "builders": {
+    "node": "6.x",
+    "docs": "0.x"
+  },
+  "scripts": {
+    "prereleasy": "bash lint.sh"
+  },
+  "credentialType": "absolute",
+  "policies": [
+    {
+      "name": "outbound-access",
+      "attrs": {
+        "host": "*",
+        "path": "*"
+      }
+    },
+    {
+      "name": "colossus-fire-event"
+    },
+    {
+      "name": "colossus-write-logs"
+    },
+    {
+      "name": "graphql-query"
+    }
+  ],
+  "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
+}
