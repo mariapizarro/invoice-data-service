@@ -1,14 +1,16 @@
 import { IOClients } from '@vtex/api'
 
+import CustomData from './customData'
 import InvoiceData from './invoiceData'
-import InvoiceDataJanus from './invoiceDataJanus'
-
-// Extend the default IOClients implementation with our own custom clients.
+import VtexId from './vtexid'
 export class Clients extends IOClients {
+  public get customData() {
+    return this.getOrSet('customData', CustomData)
+  }
   public get invoiceData() {
     return this.getOrSet('invoiceData', InvoiceData)
   }
-  public get invoiceDataJanus() {
-    return this.getOrSet('invoiceDataJanus', InvoiceDataJanus)
+  public get vtexid() {
+    return this.getOrSet('vtexid', VtexId)
   }
 }

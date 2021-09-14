@@ -1,25 +1,21 @@
 import type { InstanceOptions, IOContext } from '@vtex/api'
-import { ExternalClient } from '@vtex/api'
+import { JanusClient } from '@vtex/api'
 
-export default class InvoiceData extends ExternalClient {
+export default class InvoiceData extends JanusClient {
   constructor(ctx: IOContext, options?: InstanceOptions) {
-    super("", ctx, {
-      ...options,
-      headers: {
-        ...{ Accept: "application/json" },
-        "X-Vtex-Use-Https": "true",
-      },
-    });
+    super(ctx, { ...options })
   }
 
-  public async save(path: string, body: any): Promise<any> {
-
-    console.log('## init save invoice data', path.toString(), body)
-
-    let response = await this.http.put(path.toString(), body);
-
-    console.log('## response', response)
-
-    return response
+  public async save(path: string, body: any, authToken: any): Promise<any> {
+    return await this.http.post(path.toString(),
+      body,
+      {
+        headers: {
+          VtexIdclientAutCookie: authToken,
+          Accept: 'application/json',
+          'Proxy-Authorization': authToken,
+          Authorization: authToken,
+        },
+      })
   }
 }

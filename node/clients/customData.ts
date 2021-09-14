@@ -1,7 +1,7 @@
 import type { InstanceOptions, IOContext } from '@vtex/api'
 import { JanusClient } from '@vtex/api'
 
-export default class InvoiceDataJanus extends JanusClient {
+export default class CustomData extends JanusClient {
   constructor(ctx: IOContext, options?: InstanceOptions) {
     super(ctx, {
       ...options,
@@ -16,9 +16,6 @@ export default class InvoiceDataJanus extends JanusClient {
 
   public async save(path: string, body: any): Promise<any> {
     let response = await this.http.put(path.toString(), body);
-
-    console.log('## response', response)
-
     return response
   }
 }

@@ -5,7 +5,11 @@
   "maxReplicas": 40,
   "routes": {
     "saveInvoiceData": {
-      "path": "/_v/saveInvoiceData/:orderFormId",
+      "path": "/_v/invoiceData/save/:orderFormId",
+      "public": true
+    },
+    "saveCustomData": {
+      "path": "/_v/customData/save/:orderFormId",
       "public": true
     }
   }

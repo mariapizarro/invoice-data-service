@@ -3,6 +3,7 @@ import { LRUCache, method, Service } from '@vtex/api'
 
 import { Clients } from './clients'
 import { saveInvoiceData } from './middlewares/saveInvoiceData'
+import { saveCustomData } from './middlewares/saveCustomData'
 
 const TIMEOUT_MS = 800
 
@@ -45,6 +46,9 @@ export default new Service({
   routes: {
     saveInvoiceData: method({
       POST: [saveInvoiceData]
+    }),
+    saveCustomData: method({
+      POST: [saveCustomData]
     })
   },
 })

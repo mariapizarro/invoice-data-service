@@ -33,5 +33,16 @@
       "name": "graphql-query"
     }
   ],
+  "settingsSchema": {
+    "title": "Invoide Data - Service",
+    "type": "object",
+    "properties": {
+      "token": {
+        "title": "Service Token",
+        "description": "Token for private requests",
+        "type": "string"
+      }
+    }
+  },
   "$schema": "https://raw.githubusercontent.com/vtex/node-vtex-api/master/gen/manifest.schema"
 }
